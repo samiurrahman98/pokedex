@@ -156,40 +156,40 @@ class Pokemon
                                             print(self._description)
                                         }
                                     }
-                                    
                                     completed()
-                            }
+                                }
                         } else {
                             self._description = ""
                         }
                             
-                            if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>], evolutions.count > 0 {
-                                if let to = evolutions[0]["to"] as? String {
-                                    //Mega evolutions not supported right now
-                                    if to.range(of: "mega") == nil {
-                                        if let uri = evolutions[0]["resource_uri"] as? String {
-                                            let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                        if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>], evolutions.count > 0 {
+                            if let to = evolutions[0]["to"] as? String {
+                                //Mega evolutions not supported right now
+                                if to.range(of: "mega") == nil {
+                                    if let uri = evolutions[0]["resource_uri"] as? String {
+                                        let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
                                             
-                                            let num = newStr.replacingOccurrences(of: "/", with: "")
+                                        let num = newStr.replacingOccurrences(of: "/", with: "")
                                             
-                                            self._nextEvolutionID = num
-                                            self._nextEvolutionText = to
+                                        self._nextEvolutionID = num
+                                        self._nextEvolutionText = to
                                             
-                                            if let level = evolutions[0]["level"] as? Int {
-                                                self._nextEvolutionLevel = "\(level)"
-                                            }
+                                        if let level = evolutions[0]["level"] as? Int {
+                                            self._nextEvolutionLevel = "\(level)"
+                                        }
                                             
-                                            print(self._nextEvolutionID)
-                                            print(self._nextEvolutionText)
-                                            print(self._nextEvolutionLevel)
+                                        print(self._nextEvolutionID)
+                                        print(self._nextEvolutionText)
+                                        if self._nextEvolutionLevel != nil {
+                                                print(self._nextEvolutionLevel)
                                         }
                                     }
-                                    
                                 }
                             }
-                    }
-                            }
+                        }
                     }
                 }
             }
+        }
+    }
 }

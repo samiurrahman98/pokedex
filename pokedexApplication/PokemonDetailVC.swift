@@ -29,7 +29,7 @@ class PokemonDetailVC: UIViewController
     {
         super.viewDidLoad()
         
-        nameLabel.text = pokemon.name
+        nameLabel.text = pokemon.name.capitalized
         let img = UIImage(named: "\(pokemon.pokedexID)")
         mainImage.image = img
         currentEvolutionImage.image = img
@@ -55,9 +55,11 @@ class PokemonDetailVC: UIViewController
             nextEvolutionImage.isHidden = false
             nextEvolutionImage.image = UIImage(named: pokemon.nextEvolutionID)
             var str = "Next Evolution: \(pokemon.nextEvolutionText)"
+            evolutionLabel.text = str
             
             if pokemon.nextEvolutionLevel != "" {
                 str += " - LVL \(pokemon.nextEvolutionLevel)"
+                evolutionLabel.text = str
             }
         }
     }

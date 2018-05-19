@@ -1,2 +1,2 @@
 # Swift Pokédex Application - iOS 9
-Thank you to Mark Price from DevSlopes for assistance with this personal project of mine. 
+Designed to catalogue and provide information regarding various Pokémon species; local file storage and data parsing using Apple APIs; used UI elements such as CollectionView and StackView to create an intuitive user experience
